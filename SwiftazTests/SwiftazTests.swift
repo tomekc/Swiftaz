@@ -7,6 +7,29 @@
 //
 
 import XCTest
+import Swiftaz
+
+// Moved there. Does not work as extension because of compiler bug :(
+// https://devforums.apple.com/message/983747#983747
+
+extension Optional {
+    func getOrElse(val:T) -> T  {
+        if getLogicValue() {
+            return self!
+        } else {
+            return val
+        }
+        
+    }
+    
+    func when(functionToCall: (value:T) -> Void) {
+        if getLogicValue() {
+            functionToCall(value: self!);
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------------
 
 class SwiftazTests: XCTestCase {
     
@@ -20,16 +43,27 @@ class SwiftazTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+    func testUnwrapped() {
+        var optionalName: String? = "John Appleseed"
+        let result = optionalName.getOrElse("nobody")
+        
+        XCTAssertEqual(result, "John Appleseed")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
+    func testDefaultValue() {
+        let probablyInt = "Foo".toInt()
+        let forSureInt = probablyInt.getOrElse(666)
+        
+        XCTAssertEqual(forSureInt, 666)
+    }
+    
+    func testClosure() {
+        var optionalName: String? = "John Appleseed"
+        
+        optionalName.when {
+            XCTAssertEqual($0, "John Appleseed")
         }
+        
     }
     
 }

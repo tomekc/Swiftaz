@@ -10,6 +10,7 @@
 		4010F06E19682375001C42E7 /* Swiftaz.h in Headers */ = {isa = PBXBuildFile; fileRef = 4010F06D19682375001C42E7 /* Swiftaz.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4010F07419682376001C42E7 /* Swiftaz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4010F06819682375001C42E7 /* Swiftaz.framework */; };
 		4010F07B19682376001C42E7 /* SwiftazTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4010F07A19682376001C42E7 /* SwiftazTests.swift */; };
+		4010F085196823D0001C42E7 /* Optional+Swiftaz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4010F084196823D0001C42E7 /* Optional+Swiftaz.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		4010F07319682376001C42E7 /* SwiftazTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftazTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4010F07919682376001C42E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4010F07A19682376001C42E7 /* SwiftazTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftazTests.swift; sourceTree = "<group>"; };
+		4010F084196823D0001C42E7 /* Optional+Swiftaz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Optional+Swiftaz.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				4010F06D19682375001C42E7 /* Swiftaz.h */,
 				4010F06B19682375001C42E7 /* Supporting Files */,
+				4010F084196823D0001C42E7 /* Optional+Swiftaz.swift */,
 			);
 			path = Swiftaz;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4010F085196823D0001C42E7 /* Optional+Swiftaz.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +320,7 @@
 		4010F07F19682376001C42E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -327,12 +332,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		4010F08019682376001C42E7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
